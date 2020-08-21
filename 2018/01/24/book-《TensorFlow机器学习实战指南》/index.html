@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.2.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.2.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.2.0" color="#222">
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css?v=7.2.0">
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '7.2.0',
+    sidebar: {"position":"right","display":"post","offset":12,"onmobile":false},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    translation: {
+      copy_button: 'Copy',
+      copy_success: 'Copied',
+      copy_failure: 'Copy failed'
+    }
+  };
+</script>
+
+  <meta name="description" content="作者: [美] 尼克·麦克卢尔（Nick McClure）出版社: 机械工业出版社原作名: TensorFlow Machine Learning Cookbook译者: 曾益强出版年: 2017-10-1丛书: 智能系统与技术丛书ISBN: 9787111579489 译者序2017年3月底，华章公司的编辑邀请我翻译这本书。当时收到原书目录和样章时，大体浏览了一遍，感觉翻译难度不大。因为Tens">
+<meta name="keywords" content="机器学习,编程,计算机科学,计算机,人工智能,TensorFlow,NLP文库,豆瓣5,自评,books,续更">
+<meta property="og:type" content="article">
+<meta property="og:title" content="book_《TensorFlow机器学习实战指南》">
+<meta property="og:url" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/index.html">
+<meta property="og:site_name" content="Hac_lang">
+<meta property="og:description" content="作者: [美] 尼克·麦克卢尔（Nick McClure）出版社: 机械工业出版社原作名: TensorFlow Machine Learning Cookbook译者: 曾益强出版年: 2017-10-1丛书: 智能系统与技术丛书ISBN: 9787111579489 译者序2017年3月底，华章公司的编辑邀请我翻译这本书。当时收到原书目录和样章时，大体浏览了一遍，感觉翻译难度不大。因为Tens">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00000.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00001.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00002.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00003.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00004.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00005.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00006.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00007.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00008.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00009.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00010.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00011.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00012.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00011.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00013.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00014.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00015.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00016.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00017.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00018.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00019.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00020.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00021.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00022.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00023.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00024.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00025.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00026.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00027.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00028.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00011.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00029.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00030.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00031.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00032.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00033.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00011.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00034.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00035.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00036.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00037.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00038.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00039.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00040.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00041.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00042.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00043.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00044.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00045.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00046.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00047.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00048.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00011.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00049.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00050.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00051.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00011.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00052.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00053.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00054.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00055.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00056.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00057.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00058.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00059.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00060.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00061.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00062.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00063.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00064.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00065.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00066.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00011.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00067.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00068.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00069.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00070.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00071.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00072.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00073.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00074.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00075.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00076.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00077.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00078.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00079.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00080.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00011.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00081.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00082.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00083.jpg">
+<meta property="og:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00084.jpg">
+<meta property="og:updated_time" content="2020-08-13T16:26:19.277Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="book_《TensorFlow机器学习实战指南》">
+<meta name="twitter:description" content="作者: [美] 尼克·麦克卢尔（Nick McClure）出版社: 机械工业出版社原作名: TensorFlow Machine Learning Cookbook译者: 曾益强出版年: 2017-10-1丛书: 智能系统与技术丛书ISBN: 9787111579489 译者序2017年3月底，华章公司的编辑邀请我翻译这本书。当时收到原书目录和样章时，大体浏览了一遍，感觉翻译难度不大。因为Tens">
+<meta name="twitter:image" content="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/Image00000.jpg">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  
+  <title>book_《TensorFlow机器学习实战指南》 | Hac_lang</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hac_lang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">小白hac_lang的笔记，涉及内容包含但不限于：人工智能   基因工程    信息安全   软件工程   嵌入式   天文物理</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="Toggle navigation bar">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Home</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>Categories</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Tags</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archives</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>About</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-news">
+
+    
+    
+      
+    
+
+    
+
+    <a href="/news/" rel="section"><i class="menu-item-icon fa fa-fw fa-rss"></i> <br>news</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/HACLANG" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://haclang.github.io/2018/01/24/book-《TensorFlow机器学习实战指南》/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hac_lang">
+      <meta itemprop="description" content="小白hac_lang的笔记，涉及内容包含但不限于<br>人工智能 &ensp; 信息安全 &ensp; 网络技术<br>软件工程 &ensp; 基因工程 &ensp; 嵌入式 &ensp; 天文物理">
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hac_lang">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">book_《TensorFlow机器学习实战指南》
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+
+          
+          
+          
+
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+
+              
+                
+              
+
+              <time title="Created: 2018-01-24 19:03:58" itemprop="dateCreated datePublished" datetime="2018-01-24T19:03:58+08:00">2018-01-24</time>
+            </span>
+          
+
+          
+
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          <br>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>作者: [美] 尼克·麦克卢尔（Nick McClure）<br>出版社: 机械工业出版社<br>原作名: TensorFlow Machine Learning Cookbook<br>译者: 曾益强<br>出版年: 2017-10-1<br>丛书: 智能系统与技术丛书<br>ISBN: 9787111579489</p>
+<h1 id="译者序"><a href="#译者序" class="headerlink" title="译者序"></a>译者序</h1><p>2017年3月底，华章公司的编辑邀请我翻译这本书。当时收到原书目录和样章时，大体浏览了一遍，感觉翻译难度不大。因为TensorFlow比较火，加上自身对机器学习及其算法有一定功底，前期也翻译了不少国外优秀的技术文章（可参见公众号：神机喵算），加之国内可学习的TensorFlow资料太少，所以我希望做出一些努力来帮助对TensorFlow感兴趣的读者。</p>
+<p>Google公司开发的TensorFlow深度学习库因其简单易学、应用场景广泛已经快成为各家公司开展人工智能研究的标配了。TensorFlow采用数据流图进行数值计算。节点代表计算图中的数学操作，计算中的边表示多维数组，即张量。TensorFlow灵活的架构使其可以在多种设备（台式机、服务器或移动设备）的CPU或者GPU上进行计算。自从TensorFlow诞生以来，其开发版更新和功能优化非常快，当前已经发布到1.2.0。并且基于TensorFlow开发的深度学习库也越来越多，其中比较优秀的是Keras。Keras是基于TensorFlow或者Theano的，由Python编写的高级神经网络API，并且TensorFlow也提供支持Keras的API。</p>
+<p>本书详细讲解了TensorFlow的方方面面，毫不夸张地说，如果读者能够坚持踏踏实实做完本书所有实战项目，则基本可以开始使用TensorFlow实际工作。最后本书还给出了TensorFlow产品级应用的最佳实践，以及扩展用法。</p>
+<p>总之，本书适合广大对TensorFlow感兴趣的初中级读者。随着AI的兴起，会有越来越多的读者学习TensorFlow，希望本书能帮到大家。如果想进一步学习，那就要多看机器学习算法相关的书籍或者论文，并把TensorFlow的源代码研读几遍。</p>
+<p>最后，感谢家人和朋友的帮助和支持。由于本人水平有限，加之翻译时间仓促，书中难免会出现错误。读者可通过本人公众号——神机喵算，反馈问题，发现问题后，我一定会虚心接受批评并立即改正，并实时在公众号更新勘误，避免其他读者再入“坑”。</p>
+<p>曾益强</p>
+<p>2017年6月</p>
+<h1 id="作者简介"><a href="#作者简介" class="headerlink" title="作者简介"></a>作者简介</h1><p>Nick McClure，资深数据科学家，目前就职于美国西雅图PayScale公司，曾经在Zillow公司和Caesar’s Entertainment公司工作，获得蒙大拿大学和圣本尼迪克与圣约翰大学的应用数学专业学位。</p>
+<p>他热衷于数据分析、机器学习和人工智能。Nick有时会把想法写成博客（<a href="http://fromdata.org/" target="_blank" rel="noopener">http://fromdata.org/</a> ）或者发推特（@nfmcclure）。</p>
+<p>感谢父母，他们总是鼓励我追求知识。也感谢朋友和同事能够给出很好的建议。本书的完成得益于开源社区的不懈努力，以及TensorFlow相关项目的良好文档说明。</p>
+<p>这里，要特别感谢Google公司TensorFlow开发人员。他们给出了优秀的官方文档、教程和示例。</p>
+<h1 id="审校者简介"><a href="#审校者简介" class="headerlink" title="审校者简介"></a>审校者简介</h1><p>Chetan Khatri，具有5年工作经验的数据科学研究者。他现在是印度Accion Labs公司技术部门的负责人，曾就职于印度手游巨头Nazara Games公司，领导负责游戏与电信业务。</p>
+<p>他在KSKV Kachchh大学计算机科学和数据分析专业取得硕士学位，致力于数据科学、机器学习、AI和IoT等方面的学术和会议演讲交流。他在学术研究和工业实践两方面都有特长，所以在排除两者间的隔阂方面有不错的成就。他是Kachchh大学多门课程的合作者，比如数据分析、IoT、机器学习、AI和分布式数据库。他也是Python社区（PyKuth）的建立者之一。</p>
+<p>目前，他正致力于智能IoT设备与机器学习、增强学习和分布式计算方面的结合。</p>
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>2015年11月，Google公司开源TensorFlow，随后不久TensorFlow成为GitHub上最受欢迎的机器学习库。TensorFlow创建计算图、自动求导和定制化的方式使得其能够很好地解决许多不同的机器学习问题。</p>
+<p>本书介绍了许多机器学习算法，将其应用到真实场景和数据中，并解释产生的结果。</p>
+<p>本书的主要内容</p>
+<p>第1章介绍TensorFlow的基本概念，包括张量、变量和占位符；同时展示了在TensorFlow中如何使用矩阵和各种数学操作。本章末尾讲述如何访问本书所需的数据源。</p>
+<p>第2章介绍如何在计算图中连接第1章中的所有算法组件，创建一个简单的分类器。接着，介绍计算图、损失函数、反向传播和训练模型。</p>
+<p>第3章重点讨论使用TensorFlow实现各种线性回归算法，比如，戴明回归、lasso回归、岭回归、弹性网络回归和逻辑回归，也展示了如何在TensorFlow计算图中实现每种回归算法。</p>
+<p>第4章介绍支持向量机（SVM）算法，展示如何在TensorFlow中实现线性SVM算法、非线性SVM算法和多分类SVM算法。</p>
+<p>第5章展示如何使用数值度量、文本度量和归一化距离函数实现最近邻域法。我们使用最近邻域法进行地址间的记录匹配和MNIST数据库中手写数字的分类。</p>
+<p>第6章讲述如何使用TensorFlow实现神经网络算法，包括操作门和激励函数的概念。随后展示一个简单的神经网络并讨论如何建立不同类型的神经网络层。本章末尾通过神经网络算法教TensorFlow玩井字棋游戏。</p>
+<p>第7章阐述借助TensorFlow实现的各种文本处理算法。我们展示如何实现文本的“词袋”和TF-IDF算法。然后介绍CBOW和skip- gram模型的神经网络文本表示方式，并对于Word2Vec和Doc2Vec用这些方法来做预测。</p>
+<p>第8章扩展神经网络算法，说明如何借助卷积神经网络（CNN）算法在图像上应用神经网络算法。我们展示如何构建一个简单的CNN进行MNIST数字识别，并扩展到CIFAR-10任务中的彩色图片，也阐述了如何针对自定义任务扩展之前训练的图像识别模型。本章末尾详细解释TensorFlow实现的模仿大师绘画和Deep- Dream算法。</p>
+<p>第9章解释在TensorFlow中如何实现递归神经网络（RNN）算法，展示如何进行垃圾短信预测和在莎士比亚文本样本集上扩展RNN模型生成文本。接着训练Seq2Seq模型实现德语- 英语的翻译。本章末尾展示如何用孪生RNN模型进行地址记录匹配。</p>
+<p>第10章介绍TensorFlow产品级用例和开发提示，同时介绍如何利用多处理设备（比如，GPU）和在多个设备上实现分布式TensorFlow。</p>
+<p>第11章展示TensorFlow如何实现k-means算法、遗传算法和求解常微分方程（ODE），还介绍了Tensorboad的各种用法和如何查看计算图指标。</p>
+<p>阅读本书前的准备</p>
+<p>书中的章节都会使用TensorFlow，其官网为<a href="https://www.tensorflow.org/" target="_blank" rel="noopener">https://www.tensorflow.org/</a> ，它是基于Python 3（<a href="https://www.python.org/downloads/" target="_blank" rel="noopener">https://www.python.org/downloads/</a> ）编写的。大部分章节需要访问从网络中下载的数据集。</p>
+<p>本书的目标读者</p>
+<p>本书适用于有经验的机器学习读者和Python程序员。有机器学习背景的读者会发现TensorFlow的代码很有启发性；有Python编程经验的读者会觉得代码注释极具参考性。</p>
+<p>模块说明</p>
+<p>在本书中，你会频繁看到开始、动手做、工作原理、延伸学习和参考这几个模块。</p>
+<p>为了系统地学习相关技术，下面简单解释一下：</p>
+<p>·开始</p>
+<p>该节告诉读者该技术的内容，描述如何准备软件或者前期的准备工作。</p>
+<p>·动手做</p>
+<p>具体的操作步骤。</p>
+<p>·工作原理</p>
+<p>详细解释前一节发生了什么。</p>
+<p>·延伸学习</p>
+<p>附加资源，以供读者延伸学习。</p>
+<p>·参考</p>
+<p>提供有用的链接和有帮助的资源信息。</p>
+<p>下载示例代码</p>
+<p>读者可登录华章网站（<a href="http://www.hzbook.com" target="_blank" rel="noopener">www.hzbook.com</a> ）下载本书示例代码文件。</p>
+<h1 id="第1章-TensorFlow基础"><a href="#第1章-TensorFlow基础" class="headerlink" title="第1章 TensorFlow基础"></a>第1章 TensorFlow基础</h1><p>本章将介绍TensorFlow的基本概念，帮助读者去理解TensorFlow是如何工作的，以及它如何访问数据集和学习资源。学完本章可以掌握以下知识点：</p>
+<p>·TensorFlow如何工作</p>
+<p>·声明变量和张量</p>
+<p>·占位符和变量的用法</p>
+<p>·矩阵的使用</p>
+<p>·声明计算操作</p>
+<p>·实现激励函数</p>
+<p>·读取数据源</p>
+<p>·学习资料</p>
+<h2 id="1-1-TensorFlow介绍"><a href="#1-1-TensorFlow介绍" class="headerlink" title="1.1 TensorFlow介绍"></a>1.1 TensorFlow介绍</h2><p>Google的TensorFlow引擎提供了一种解决机器学习问题的高效方法。机器学习在各行各业应用广泛，特别是计算机视觉、语音识别、语言翻译和健康医疗等领域。本书将详细介绍TensorFlow操作的基本步骤以及代码。这些基础知识对理解本书后续章节非常有用。</p>
+<h2 id="1-2-TensorFlow如何工作"><a href="#1-2-TensorFlow如何工作" class="headerlink" title="1.2 TensorFlow如何工作"></a>1.2 TensorFlow如何工作</h2><p>首先，TensorFlow的计算看起来并不是很复杂，因为TensorFlow的计算过程和算法开发相当容易。这章将引导读者理解TensorFlow算法的伪代码。</p>
+<h3 id="1-2-1-开始"><a href="#1-2-1-开始" class="headerlink" title="1.2.1 开始"></a>1.2.1 开始</h3><p>截至目前，TensorFlow支持Linux、Mac和Windows操作系统。本书的代码都是在Linux操作系统上实现和运行的，不过运行在其他操作系统上也没问题。本书的代码可以在GitHub（<a href="https://github.com/nfmcclure/tensorflow_cookbookTensorFlow" target="_blank" rel="noopener">https://github.com/nfmcclure/tensorflow_cookbookTensorFlow</a><br>）上获取。虽然TensorFlow是用C++编写，但是全书只介绍TensorFlow的Python使用方式。本书将使用Python 3.4+（<a href="https://www.python.org" target="_blank" rel="noopener">https://www.python.org</a> ）和TensorFlow 0.12（<a href="https://www.tensorflow.org" target="_blank" rel="noopener">https://www.tensorflow.org</a><br>）。TensorFlow官方已经在GitHub上发布1.0.0 alpha版本，本书代码兼容相应版本。TensorFlow能在CPU上运行，大部分算法在GPU上会运行得更快，它支持英伟达显卡（Nvidia Compute Capability v4.0+，推荐v5.1）。TensorFlow上常用的GPU是英伟达特斯拉（Nvidia Tesla）和英伟达帕斯卡（Nvidia Pascal），至少需要4GB的RAM。为了运行GPU，需要下载Nvidia Cuda Toolkit及其v5.x版本（<a href="https://developer.nvidia.com/cuda-downloads" target="_blank" rel="noopener">https://developer.nvidia.com/cuda-downloads</a><br>）。本书还依赖Python的包：Scipy、Numpy和Scikit-Learn。</p>
+<h3 id="1-2-2-动手做"><a href="#1-2-2-动手做" class="headerlink" title="1.2.2 动手做"></a>1.2.2 动手做</h3><p>这里是TensorFlow算法的一般流程，本书提炼出的纲领如下：</p>
+<p>1.导入/生成样本数据集：所有的机器学习算法2017/9/112017/9/11都依赖样本数据集，本书的数据集既有生成的样本数据集，也有外部公开的样本数据集。有时，生成的数据集会更容易符合预期结果，但是本书大部分都是访问外部公开的样本数据集，具体细节见第8章。</p>
+<p>2.转换和归一化数据：一般来讲，输入样本数据集并不符合TensorFlow期望的形状，所以需要转换数据格式以满足TensorFlow。当数据集的维度或者类型不符合所用机器学习算法的要求时，需要在使用前进行数据转换。大部分机器学习算法期待的输入样本数据是归一化的数据。TensorFlow具有内建函数来归一化数据，如下：</p>
+<p><img src="Image00000.jpg" alt></p>
+<p>3.划分样本数据集为训练样本集、测试样本集和验证样本集：一般要求机器学习算法的训练样本集和测试样本集是不同的数据集。另外，许多机器学习算法要求超参数调优，所以需要验证样本集来决定最优的超参数。</p>
+<p>4.设置机器学习参数（超参数）：机器学习经常要有一系列的常量参数。例如，迭代次数、学习率，或者其他固定参数。约定俗成的习惯是一次性初始化所有的机器学习参数，读者经常看到的形式如下：</p>
+<p><img src="Image00001.jpg" alt></p>
+<p>5.初始化变量和占位符：在求解最优化过程中（最小化损失函数），TensorFlow通过占位符获取数据，并调整变量和权重/偏差。TensorFlow指定数据大小和数据类型初始化变量和占位符。本书大部分使用float32数据类型，TensorFlow也支持float64和float16。注意，使用的数据类型字节数越多结果越精确，同时运行速度越慢。使用方式如下：</p>
+<p><img src="Image00002.jpg" alt></p>
+<p>6.定义模型结构：在获取样本数据集、初始化变量和占位符后，开始定义机器学习模型。TensorFlow通过选择操作、变量和占位符的值来构建计算图，详细讲解见第2章。这里给出简单的线性模型：</p>
+<p><img src="Image00003.jpg" alt></p>
+<p>7.声明损失函数：定义完模型后，需要声明损失函数来评估输出结果。损失函数能说明预测值与实际值的差距，损失函数的种类将在第2章详细展示：</p>
+<p><img src="Image00004.jpg" alt></p>
+<p>8.初始化模型和训练模型：TensorFlow创建计算图实例，通过占位符赋值，维护变量的状态信息。下面是初始化计算图的一种方式：</p>
+<p><img src="Image00005.jpg" alt></p>
+<p>也可以用如下的方式初始化计算图：</p>
+<p><img src="Image00006.jpg" alt></p>
+<p>9.评估机器学习模型：一旦构建计算图，并训练机器学习模型后，需要寻找某种标准来评估机器学习模型对新样本数据集的效果。通过对训练样本集和测试样本集的评估，可以确定机器学习模型是过拟合还是欠拟合。这些将在后续章节来解决。</p>
+<p>10.调优超参数：大部分情况下，机器学习者需要基于模型效果来回调整一些超参数。通过调整不同的超参数来重复训练模型，并用验证样本集来评估机器学习模型。</p>
+<p>11.发布/预测结果：所有机器学习模型一旦训练好，最后都用来预测新的、未知的数据。</p>
+<h3 id="1-2-3-工作原理"><a href="#1-2-3-工作原理" class="headerlink" title="1.2.3 工作原理"></a>1.2.3 工作原理</h3><p>使用TensorFlow时，必须准备样本数据集、变量、占位符和机器学习模型，然后进行模型训练，改变变量状态来提高预测结果。TensorFlow通过计算图实现上述过程。这些计算图是有向无环图，并且支持并行计算。接着TensorFlow创建损失函数，通过调整计算图中的变量来最小化损失函数。TensorFlow维护模型的计算状态，每步迭代自动计算梯度。</p>
+<h3 id="1-2-4-参考"><a href="#1-2-4-参考" class="headerlink" title="1.2.4 参考"></a>1.2.4 参考</h3><p><a href="https://www.tensorflow.org/api_docs/python/" target="_blank" rel="noopener">https://www.tensorflow.org/api_docs/python/</a>  </p>
+<p><a href="https://www.tensorflow.org/tutorials/" target="_blank" rel="noopener">https://www.tensorflow.org/tutorials/</a>  </p>
+<h2 id="1-3-声明张量"><a href="#1-3-声明张量" class="headerlink" title="1.3 声明张量"></a>1.3 声明张量</h2><p>TensorFlow的主要数据结构是张量，它用张量来操作计算图。在TensorFlow里可以把变量或者占位符声明为张量。首先，需要知道如何创建张量。</p>
+<h3 id="1-3-1-开始"><a href="#1-3-1-开始" class="headerlink" title="1.3.1 开始"></a>1.3.1 开始</h3><p>创建一个张量，声明其为一个变量。TensorFlow在计算图中可以创建多个图结构。这里需要指出，在TensorFlow中创建一个张量，并不会立即在计算图中增加什么。只有把张量赋值给一个变量或者占位符，TensorFlow才会把此张量增加到计算图。更多信息请见下一章。</p>
+<h3 id="1-3-2-动手做"><a href="#1-3-2-动手做" class="headerlink" title="1.3.2 动手做"></a>1.3.2 动手做</h3><p>这里将介绍在TensorFlow中创建张量的主要方法：</p>
+<p>1.固定张量：</p>
+<p>·创建指定维度的零张量。使用方式如下：</p>
+<p><img src="Image00007.jpg" alt></p>
+<p>·创建指定维度的单位张量。使用方式如下：</p>
+<p><img src="Image00008.jpg" alt></p>
+<p>·创建指定维度的常数填充的张量。使用方式如下：</p>
+<p><img src="Image00009.jpg" alt></p>
+<p>·用已知常数张量创建一个张量。使用方式如下：</p>
+<p><img src="Image00010.jpg" alt></p>
+<p><img src="Image00011.jpg" alt> tf.constant（）函数也能广播一个值为数组，然后模拟tf.fill（）函数的功能，具体写法为：tf.constant（42，[row_dim，col_dim]）。</p>
+<p>2.相似形状的张量：</p>
+<p>·新建一个与给定的tensor类型大小一致的tensor，其所有元素为0或者1，使用方式如下：</p>
+<p><img src="Image00012.jpg" alt></p>
+<p><img src="Image00011.jpg" alt> 因为这些张量依赖给定的张量，所以初始化时需要按序进行。如果打算一次性初始化所有张量，那么程序将会报错。</p>
+<p>3.序列张量：</p>
+<p>·TensorFlow可以创建指定间隔的张量。下面的函数的输出跟range（）函数和numpy的linspace（）函数的输出相似：</p>
+<p><img src="Image00013.jpg" alt></p>
+<p>·返回的张量是[0.0，0.5，1.0]序列。注意，上面的函数结果中最后一个值是stop值。另外一个rang（）函数的使用方式如下：</p>
+<p><img src="Image00014.jpg" alt></p>
+<p>·返回的张量是[6，9，12]。注意，这个函数结果不包括limit值。</p>
+<p>4.随机张量：</p>
+<p>·下面的tf.random_uniform（）函数生成均匀分布的随机数：</p>
+<p><img src="Image00015.jpg" alt></p>
+<p>·注意，这个随机均匀分布从minval（包含minval值）开始到maxval（不包含maxval值）结束，即（minval&lt;=x&lt; li=””&gt;</p>
+<p>·tf.random_normal（）函数生成正态分布的随机数：</p>
+<p><img src="Image00016.jpg" alt></p>
+<p>·tf.truncated_normal（）函数生成带有指定边界的正态分布的随机数，其正态分布的随机数位于指定均值（期望）到两个标准差之间的区间：</p>
+<p><img src="Image00017.jpg" alt></p>
+<p>·张量/数组的随机化。tf.random_shuffle（）和tf，random_crop（）可以实现此功能：</p>
+<p><img src="Image00018.jpg" alt></p>
+<p>·张量的随机剪裁。tf.random_crop（）可以实现对张量指定大小的随机剪裁。在本书的后面部分，会对具有3通道颜色的图像（height，width，3）进行随机剪裁。为了固定剪裁结果的一个维度，需要在相应的维度上赋其最大值：</p>
+<p><img src="Image00019.jpg" alt></p>
+<h3 id="1-3-3-工作原理"><a href="#1-3-3-工作原理" class="headerlink" title="1.3.3 工作原理"></a>1.3.3 工作原理</h3><p>一旦创建好张量，就可以通过tf.Variable（）函数封装张量来作为变量，更多细节见下节，使用方式如下：</p>
+<p><img src="Image00020.jpg" alt></p>
+<h3 id="1-3-4-延伸学习"><a href="#1-3-4-延伸学习" class="headerlink" title="1.3.4 延伸学习"></a>1.3.4 延伸学习</h3><p>创建张量并不一定得用TensorFlow内建函数，可以使用tf.convert_to_tensor（）函数将任意numpy数组转换为Python列表，或者将常量转换为一个张量。注意，tf.convert_to_tensor（）函数也可以接受张量作为输入。</p>
+<h2 id="1-4-使用占位符和变量"><a href="#1-4-使用占位符和变量" class="headerlink" title="1.4 使用占位符和变量"></a>1.4 使用占位符和变量</h2><p>使用TensorFlow计算图的关键工具是占位符和变量，也请读者务必理解两者的区别，以及什么地方该用谁。</p>
+<h3 id="1-4-1-开始"><a href="#1-4-1-开始" class="headerlink" title="1.4.1 开始"></a>1.4.1 开始</h3><p>使用数据的关键点之一是搞清楚它是占位符还是变量。变量是TensorFlow机器学习算法的参数，TensorFlow维护（调整）这些变量的状态来优化机器学习算法。占位符是TensorFlow对象，用于表示输入输出数据的格式，允许传入指定类型和形状的数据，并依赖计算图的计算结果，比如，期望的计算结果。</p>
+<h3 id="1-4-2-动手做"><a href="#1-4-2-动手做" class="headerlink" title="1.4.2 动手做"></a>1.4.2 动手做</h3><p>在TensorFlow中，tf.Variable（）函数创建变量，过程是输入一个张量，返回一个变量。声明变量后需要初始化变量。下面是创建变量并初始化的例子：</p>
+<p><img src="Image00021.jpg" alt></p>
+<p>占位符仅仅声明数据位置，用于传入数据到计算图。占位符通过会话的feed_dict参数获取数据。在计算图中使用占位符时，必须在其上执行至少一个操作。在TensorFlow中，初始化计算图，声明一个占位符x，定义y为x的identity操作。identity操作返回占位符传入的数据本身。结果图将在下节展示，代码如下：</p>
+<p><img src="Image00022.jpg" alt></p>
+<h3 id="1-4-3-工作原理"><a href="#1-4-3-工作原理" class="headerlink" title="1.4.3 工作原理"></a>1.4.3 工作原理</h3><p>以零张量初始化变量，其计算图如图1-1所示。</p>
+<p>在图1-1中可以看出，计算图仅仅有一个变量，全部初始化为0。图中灰色部分详细地展示计算图操作以及相关的常量。右上角的小图展示的是主计算图。关于在TensorFlow中创建和可视化计算图的部分见第10章。</p>
+<p><img src="Image00023.jpg" alt></p>
+<p>图1-1 变量</p>
+<p>相似地，一个占位符传入numpy数组的计算图展示如图1-2所示。</p>
+<p><img src="Image00024.jpg" alt></p>
+<p>图1-2 占位符初始化的计算图。灰色部分详细地展示计算图操作以及相关的常量</p>
+<h3 id="1-4-4-延伸学习"><a href="#1-4-4-延伸学习" class="headerlink" title="1.4.4 延伸学习"></a>1.4.4 延伸学习</h3><p>在计算图运行的过程中，需要告诉TensorFlow初始化所创建的变量。TensorFlow的每个变量都有initializer方法，但最常用的方式是helper函数（global_variables_initializer（））。此函数会一次性初始化所创建的所有变量，使用方式如下：</p>
+<p><img src="Image00025.jpg" alt></p>
+<p>但是，如果是基于已经初始化的变量进行初始化，则必须按序进行初始化，使用方式如下：</p>
+<p><img src="Image00026.jpg" alt></p>
+<h2 id="1-5-操作（计算）矩阵"><a href="#1-5-操作（计算）矩阵" class="headerlink" title="1.5 操作（计算）矩阵"></a>1.5 操作（计算）矩阵</h2><p>理解TensorFlow如何操作矩阵，对于理解计算图中数据的流动来说非常重要。</p>
+<h3 id="1-5-1-开始"><a href="#1-5-1-开始" class="headerlink" title="1.5.1 开始"></a>1.5.1 开始</h3><p>许多机器学习算法依赖矩阵操作。在TensorFlow中，矩阵计算是相当容易的。在下面的所有例子里，我们都会创建一个图会话，代码如下：</p>
+<p><img src="Image00027.jpg" alt></p>
+<h3 id="1-5-2-动手做"><a href="#1-5-2-动手做" class="headerlink" title="1.5.2 动手做"></a>1.5.2 动手做</h3><p>1.创建矩阵：如在前面的章节描述张量时提到的，使用numpy数组（或者嵌套列表）来创建二维矩阵。也可以使用创建张量的函数（比如，zeros（）、ones（）、truncated_normal（）等），并为其指定一个二维形状。TensorFlow也可以使用diag（）函数从一个一维数组（或者列表）来创建对角矩阵，代码如下：</p>
+<p><img src="Image00028.jpg" alt></p>
+<p><img src="Image00011.jpg" alt> 注意，如果再次运行sess.run（C），TensorFlow会重新初始化随机变量，并得到不同的随机数。</p>
+<p>2.矩阵的加法和减法：</p>
+<p><img src="Image00029.jpg" alt></p>
+<p><img src="Image00030.jpg" alt></p>
+<p>3.矩阵乘法函数matmul（）可以通过参数指定在矩阵乘法操作前是否进行矩阵转置。</p>
+<p>4.矩阵转置，示例如下：</p>
+<p><img src="Image00031.jpg" alt></p>
+<p>5.再次强调，重新初始化将会得到不同的值。</p>
+<p>6.对于矩阵行列式，使用方式如下：</p>
+<p><img src="Image00032.jpg" alt></p>
+<p>·矩阵的逆矩阵：</p>
+<p><img src="Image00033.jpg" alt></p>
+<p><img src="Image00011.jpg" alt> TensorFlow中的矩阵求逆方法是Cholesky矩阵分解法（又称为平方根法），矩阵需要为对称正定矩阵或者可进行LU分解。</p>
+<p>7.矩阵分解：</p>
+<p>·Cholesky矩阵分解法，使用方式如下：</p>
+<p><img src="Image00034.jpg" alt></p>
+<p>8.矩阵的特征值和特征向量，使用方式如下：</p>
+<p><img src="Image00035.jpg" alt></p>
+<p>注意，self_adjoint_eig（）函数的输出结果中，第一行为特征值，剩下的向量是对应的向量。在数学中，这种方法也称为矩阵的特征分解。</p>
+<h3 id="1-5-3-工作原理"><a href="#1-5-3-工作原理" class="headerlink" title="1.5.3 工作原理"></a>1.5.3 工作原理</h3><p>TensorFlow提供数值计算工具，并把这些计算添加到计算图中。这些部分对于简单的矩阵计算来说看似有点重，TensorFlow增加这些矩阵操作到计算图进行张量计算。现在看起来这些介绍有些啰嗦，但是这有助于理解后续章节的内容。</p>
+<h2 id="1-6-声明操作"><a href="#1-6-声明操作" class="headerlink" title="1.6 声明操作"></a>1.6 声明操作</h2><p>现在开始学习TensorFlow计算图的其他操作。</p>
+<h3 id="1-6-1-开始"><a href="#1-6-1-开始" class="headerlink" title="1.6.1 开始"></a>1.6.1 开始</h3><p>除了标准数值计算外，TensorFlow提供很多其他的操作。在使用之前，按照惯例创建一个计算图会话，代码如下：</p>
+<p><img src="Image00036.jpg" alt></p>
+<h3 id="1-6-2-动手做"><a href="#1-6-2-动手做" class="headerlink" title="1.6.2 动手做"></a>1.6.2 动手做</h3><p>TensorFlow张量的基本操作有：add（）、sub（）、mul（）和div（）。注意，除特别说明外，这章节所有的操作都是对张量的每个元素进行操作：</p>
+<p>1.TensorFlow提供div（）函数的多种变种形式和相关的函数。</p>
+<p>2.值得注意的，div（）函数返回值的数据类型与输入数据类型一致。这意味着，在Python 2中，整数除法的实际返回是商的向下取整，即不大于商的最大整数；而Python 3版本中，TensorFlow提供truediv（）函数，其会在除法操作前强制转换整数为浮点数，所以最终的除法结果是浮点数，代码如下：</p>
+<p><img src="Image00037.jpg" alt></p>
+<p>3.如果要对浮点数进行整数除法，可以使用floordiv（）函数。注意，此函数也返回浮点数结果，但是其会向下舍去小数位到最近的整数。示例如下：</p>
+<p><img src="Image00038.jpg" alt></p>
+<p>4.另外一个重要的函数是mod（）（取模）。此函数返回除法的余数。示例如下：</p>
+<p><img src="Image00039.jpg" alt></p>
+<p>5.通过cross（）函数计算两个张量间的点积。记住，点积函数只为三维向量定义，所以cross（）函数以两个三维张量作为输入，示例如下：</p>
+<p><img src="Image00040.jpg" alt></p>
+<p>6.下面给出数学函数的列表：</p>
+<p><img src="Image00041.jpg" alt></p>
+<p>7.特殊数学函数：有些用在机器学习中的特殊数学函数值得一提，TensorFlow也有对应的内建函数。除特别说明外，这些函数操作的也是张量的每个元素。</p>
+<p><img src="Image00042.jpg" alt></p>
+<h3 id="1-6-3-工作原理"><a href="#1-6-3-工作原理" class="headerlink" title="1.6.3 工作原理"></a>1.6.3 工作原理</h3><p>知道在计算图中应用什么函数合适是重要的。大部分情况下，我们关心预处理函数，但也通过组合预处理函数生成许多自定义函数，示例如下：</p>
+<p><img src="Image00043.jpg" alt></p>
+<h3 id="1-6-4-延伸学习"><a href="#1-6-4-延伸学习" class="headerlink" title="1.6.4 延伸学习"></a>1.6.4 延伸学习</h3><p>如果希望（未在上述函数列表中列出的操作）在计算图中增加其他操作，必须创建自定义函数。下面创建一个自定义二次多项式函数，3x2 -x+10：</p>
+<p><img src="Image00044.jpg" alt></p>
+<h2 id="1-7-实现激励函数"><a href="#1-7-实现激励函数" class="headerlink" title="1.7 实现激励函数"></a>1.7 实现激励函数</h2><h3 id="1-7-1-开始"><a href="#1-7-1-开始" class="headerlink" title="1.7.1 开始"></a>1.7.1 开始</h3><p>激励函数是使用所有神经网络算法的必备“神器”。激励函数的目的是为了调节权重和误差。在TensorFlow中，激励函数是作用在张量上的非线性操作。激励函数的使用方法和前面的数学操作相似。激励函数的功能有很多，但其主要是为计算图归一化返回结果而引进的非线性部分。创建一个TensorFlow计算图：</p>
+<p><img src="Image00045.jpg" alt></p>
+<h3 id="1-7-2-动手做"><a href="#1-7-2-动手做" class="headerlink" title="1.7.2 动手做"></a>1.7.2 动手做</h3><p>TensorFlow的激励函数位于神经网络（neural network，nn）库。除了使用TensorFlow内建激励函数外，我们也可以使用TensorFlow操作设计自定义激励函数。导入预定义激励函数，或者在函数中显式调用.nn。这里，选择每个函数显式调用的方法。</p>
+<p>1.整流线性单元（Rectifier linear unit，ReLU）是神经网络最常用的非线性函数。其函数为max（0，x），连续但不平滑。示例如下：</p>
+<p><img src="Image00046.jpg" alt></p>
+<p>2.有时为了抵消ReLU激励函数的线性增长部分，会在min（）函数中嵌入max（o，x），其在TensorFlow中的实现称作ReLU6，表示为min（max（0，x），6）。这是hard- sigmoid函数的变种，计算运行速度快，解决梯度消失（无限趋近于0），这些将在第8章和第9章中详细阐述，使用方式如下：</p>
+<p><img src="Image00047.jpg" alt></p>
+<p>3.sigmoid函数是最常用的连续、平滑的激励函数。它也被称作逻辑函数（Logistic函数），表示为1/（1+exp（-x））。sigmoid函数由于在机器学习训练过程中反向传播项趋近于0，因此不怎么使用。使用方式如下：</p>
+<p><img src="Image00048.jpg" alt></p>
+<p><img src="Image00011.jpg" alt> 注意，有些激励函数不以0为中心，比如，sigmoid函数。在大部分计算图算法中要求优先使用均值为0的样本数据集。</p>
+<p>4.另外一种激励函数是双曲正切函数（hyper tangent，tanh）。双曲正切函数与sigmoid函数相似，但有一点不同：双曲正切函数取值范围为0到1；sigmoid函数取值范围为-1到1。双曲正切函数是双曲正弦与双曲余弦的比值，另外一种写法是（（exp（x）-exp（-x））/（exp（x）+exp（-x））。使用方式如下：</p>
+<p><img src="Image00049.jpg" alt></p>
+<p>5.softsign函数也是一种激励函数，表达式为：x/（abs（x）+1）。softsign函数是符号函数的连续估计，使用方式如下：</p>
+<p><img src="Image00050.jpg" alt></p>
+<p>6.softplus激励函数是ReLU激励函数的平滑版，表达式为：log（exp（x）+1）。使用方式如下：</p>
+<p><img src="Image00051.jpg" alt></p>
+<p><img src="Image00011.jpg" alt> 注意，当输入增加时，softplus激励函数趋近于无限大，softsign函数趋近于1；当输入减小时，softplus激励函数趋近于0，softsign函数趋近于-1。</p>
+<p>7.ELU激励函数（Exponential Linear Unit，ELU）与softplus激励函数相似，不同点在于：当输入无限小时，ELU激励函数趋近于-1，而softplus激励函数趋近于0。表达式为（exp（x）+1）if x&lt;0 else x，使用方式如下：</p>
+<p><img src="Image00052.jpg" alt></p>
+<h3 id="1-7-3-工作原理"><a href="#1-7-3-工作原理" class="headerlink" title="1.7.3 工作原理"></a>1.7.3 工作原理</h3><p>上面这些激励函数是神经网络引入的非线性部分，并需要知道在什么位置使用激励函数。如果激励函数的取值范围在0和1之间，比如sigmoid激励函数，那计算图输出结果也只能在0到1之间取值。</p>
+<p>如果激励函数隐藏在节点之间，就要意识到激励函数作用于传入的张量的影响。如果张量要缩放为均值为0，就需要使用激励函数使得尽可能多的变量在0附近。这暗示我们选用双曲正切（tanh）函数或者softsign函数。</p>
+<h3 id="1-7-4-延伸学习"><a href="#1-7-4-延伸学习" class="headerlink" title="1.7.4 延伸学习"></a>1.7.4 延伸学习</h3><p>图1-3和图1-4展示了不同激励函数，从中可以看到的激励函数有ReLU、ReLU6、softplus、ELU、sigmoid、softsign和tanh。</p>
+<p><img src="Image00053.jpg" alt></p>
+<p>图1-3 ReLU、ReLU6、softplus和ELU激励函数</p>
+<p>在图1-3中，我们可以看到四种激励函数：ReLU、ReLU6、softplus和ELU。这些激励函数输入值小于0时输出值逐渐变平，输入值大于0时输出值线性增长（除了ReLU6函数有最大值6）。</p>
+<p><img src="Image00054.jpg" alt></p>
+<p>图1-4 sigmoid、softsign和tanh激励函数</p>
+<p>图1-4展示的是sigmoid激励函数、双曲正切（tanh）激励函数和softsign激励函数。这些激励函数都是平滑的、具有S型，注意有两个激励函数有水平渐近线。</p>
+<h2 id="1-8-读取数据源"><a href="#1-8-读取数据源" class="headerlink" title="1.8 读取数据源"></a>1.8 读取数据源</h2><p>本书中使用样本数据集训练机器学习算法模型，本章简要介绍如何通过TensorFlow和Python访问各种数据源。</p>
+<h3 id="1-8-1-开始"><a href="#1-8-1-开始" class="headerlink" title="1.8.1 开始"></a>1.8.1 开始</h3><p>在TensorFlow中，有些数据源使用Python内建库，有的需要编写Python脚本下载，还有其他的得手动从网上下载。所有这些数据源都需要联网才能获取到。</p>
+<h3 id="1-8-2-动手做"><a href="#1-8-2-动手做" class="headerlink" title="1.8.2 动手做"></a>1.8.2 动手做</h3><p>1.鸢尾花卉数据集（Iris data）。此样本数据是机器学习和统计分析最经典的数据集，包含山鸢尾、变色鸢尾和维吉尼亚鸢尾各自的花萼和花瓣的长度和宽度。总共有150个数据集，每类有50个样本。用Python加载样本数据集时，可以使用Scikit Learn的数据集函数，使用方式如下：</p>
+<p><img src="Image00055.jpg" alt></p>
+<p>2.出生体重数据（Birth weight data）。此样本数据集是婴儿出生体重以及母亲和家庭历史人口统计学、医学指标，有189个样本集，包含11个特征变量。使用Python访问的数据的方式：</p>
+<p><img src="Image00056.jpg" alt></p>
+<p>3.波士顿房价数据（Boston Housing data）。此样本数据集保存在卡内基梅隆大学机器学习仓库，总共有506个房价样本，包含14个特征变量。使用Python获取数据的方式：</p>
+<p><img src="Image00057.jpg" alt></p>
+<p><img src="Image00058.jpg" alt></p>
+<p>4.MNIST手写体字库：MNIST手写体字库是NIST手写体字库的子样本数据集，网址：<a href="https://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">https://yann.lecun.com/exdb/mnist/</a> 。包含70000张0到9的图像，其中60000张标注为训练样本数据集，10000张为测试样本数据集。TensorFlow提供内建函数来访问它，MNIST手写体字库常用来进行图像识别训练。在机器学习中，提供验证样本数据集来预防过拟合是非常重要的，TensorFlow从训练样本数据集中留出5000张图片作为验证样本数据集。这里展示使用Python访问数据的方式：</p>
+<p><img src="Image00059.jpg" alt></p>
+<p>5.垃圾短信文本数据集（Spam-ham text data）。通过以下方式访问垃圾短信文本数据：</p>
+<p><img src="Image00060.jpg" alt></p>
+<p>6.影评样本数据集。此样本数据集是电影观看者的影评，分为好评和差评，可以在网站&lt;<a href="http://www.cs.cornell.edu/people/pabo/movie-" target="_blank" rel="noopener">http://www.cs.cornell.edu/people/pabo/movie-</a> review-data/&gt; 下载。这里用Python进行数据处理，使用方式如下：</p>
+<p><img src="Image00061.jpg" alt></p>
+<p>7.CIFAR-10图像数据集。此图像数据集是CIFAR机构发布的8亿张彩色图片（已标注为，32×32像素）的子集，总共分10类，60000张图片。50000张图片训练数据集，10000张测试数据集。由于这个图像数据集数据量大，并在本书中以多种方式使用，后面到具体用时再细讲，访问网址为：<a href="http://www.cs.toronto.edu/~kriz/cifar.html" target="_blank" rel="noopener">http://www.cs.toronto.edu/~kriz/cifar.html</a> 。</p>
+<p>8.莎士比亚著作文本数据集（Shakespeare text data）。此文本数据集是古登堡数字电子书计划提供的免费电子书籍，他们编译了莎士比亚所有著作。用Python访问文本文件的方式如下：</p>
+<p><img src="Image00062.jpg" alt></p>
+<p><img src="Image00063.jpg" alt></p>
+<p>9.英德句子翻译样本集。此数据集由Tatoeba（在线翻译数据库）发布，ManyThings.org（<a href="http://www.manythings.org" target="_blank" rel="noopener">http://www.manythings.org</a><br>）整理并提供下载。这里提供英德语句互译的文本文件（你可以通过改变URL，使用你需要的任何语言的文本文件），使用方式如下：</p>
+<p><img src="Image00064.jpg" alt></p>
+<h3 id="1-8-3-参考"><a href="#1-8-3-参考" class="headerlink" title="1.8.3 参考"></a>1.8.3 参考</h3><p><img src="Image00065.jpg" alt></p>
+<h2 id="1-9-学习资料"><a href="#1-9-学习资料" class="headerlink" title="1.9 学习资料"></a>1.9 学习资料</h2><p>这里提供一些关于TensorFlow使用和学习的链接、文档资料和用例。</p>
+<p>TensorFlow资源列表如下：</p>
+<p>1.本书代码可在GitHub获取<a href="https://github.com/nfmcclure/tensorflow_cookbook" target="_blank" rel="noopener">https://github.com/nfmcclure/tensorflow_cookbook</a> 。</p>
+<p>2.TensorFlow官方Python API文档地址：<a href="https://www.tensorflow.org/api_docs/python" target="_blank" rel="noopener">https://www.tensorflow.org/api_docs/python</a> 。其中包括TensorFlow所有函数、对象和方法的文档和例子。本书当前的TensorFlow版本为r0.8。</p>
+<p>3.TensorFlow官方用例相当详细，访问网址：<a href="https://www.tensorflow.org/tutorials/index.html" target="_blank" rel="noopener">https://www.tensorflow.org/tutorials/index.html</a> 。包括图像识别模型、Word2Vec、RNN模型和sequence-to-sequence模型，也有些偏微分方程的例子。后续还会不断增加更多实例。</p>
+<p>4.TensorFlow官方GitHub仓库：<a href="https://github.com/tensorflow/tensorflow" target="_blank" rel="noopener">https://github.com/tensorflow/tensorflow</a> 。你可以查看源代码，甚至包含fork或者clone最新代码。也可以看到最近的issue。</p>
+<p>5.TensorFlow在Dockerhub上维护的公开Docker镜像，网址为<a href="https://hub.docker.com/r/tensorflow/tensorflow/" target="_blank" rel="noopener">https://hub.docker.com/r/tensorflow/tensorflow/</a> 。</p>
+<p>6.TensorFlow提供可下载的虚拟机，基于Ubuntu 15.04操作系统安装TensorFlow。这样对于Windows PC用户更容易使用TensorFlow的UNIX版本。</p>
+<p>7.Stack Overflow上有TensorFlow标签的知识问答。随着TensorFlow日益流行，这个标签下的问答在不断增长，访问网址为：<a href="http://stackoverflow.com/questions/tagged/TensorFlow" target="_blank" rel="noopener">http://stackoverflow.com/questions/tagged/TensorFlow</a> 。</p>
+<p>8.TensorFlow非常灵活，应用场景广，最常用的是深度学习。为了理解深度学习的基础，数学知识和深度学习开发，Google在在线课程Udacity上开课，网址为：&lt;<a href="https://www.udacity.com/course/deep-" target="_blank" rel="noopener">https://www.udacity.com/course/deep-</a> learning—ud730&gt; 。</p>
+<p>9.TensorFlow也提供一个网站，让你可以可视化查看随着参数和样本数据集的变化对训练神经网络的影响，网址为：<a href="http://playground.tensorflow.org" target="_blank" rel="noopener">http://playground.tensorflow.org</a> 。</p>
+<p>10.深度学习开山祖师爷Geoffrey Hinton在Coursera上开课教授“机器学习中的神经网络”，网址为：&lt;<a href="https://www.coursera.org/learn/neural-" target="_blank" rel="noopener">https://www.coursera.org/learn/neural-</a> networks&gt; 。</p>
+<p>11.斯坦福大学提供在线课程“图像识别中卷积神经网络”及其详细的课件，网址为：<a href="http://cs231n.stanford.edu/" target="_blank" rel="noopener">http://cs231n.stanford.edu/</a> 。</p>
+<p>参考</p>
+<p><img src="Image00066.jpg" alt></p>
+<h1 id="第2章-TensorFlow进阶"><a href="#第2章-TensorFlow进阶" class="headerlink" title="第2章 TensorFlow进阶"></a>第2章 TensorFlow进阶</h1><p>本章将介绍如何使用TensorFlow的关键组件，并串联起来创建一个简单的分类器，评估输出结果。阅读本章你会学到以下知识点：</p>
+<p>·计算图中的操作</p>
+<p>·TensorFlow的嵌入Layer</p>
+<p>·TensorFlow的多层Layer</p>
+<p>·TensorFlow实现损失函数</p>
+<p>·TensorFlow实现反向传播</p>
+<p>·TensorFlow实现随机训练和批量训练</p>
+<p>·TensorFlow实现创建分类器</p>
+<p>·TensorFlow实现模型评估</p>
+<h2 id="2-1-本章概要"><a href="#2-1-本章概要" class="headerlink" title="2.1 本章概要"></a>2.1 本章概要</h2><p>现在我们已经学习完TensorFlow如何创建张量，使用变量和占位符；下面将把这些对象组成一个计算图。基于此，创建一个简单的分类器，并看下性能如何。</p>
+<p><img src="Image00011.jpg" alt> 本书的所有源代码可以在GitHub（<a href="https://github.com/nfmcclure/tensorflow_cookbook" target="_blank" rel="noopener">https://github.com/nfmcclure/tensorflow_cookbook</a> ）下载。</p>
+<h2 id="2-2-计算图中的操作"><a href="#2-2-计算图中的操作" class="headerlink" title="2.2 计算图中的操作"></a>2.2 计算图中的操作</h2><p>现在可以把这些对象表示成计算图，下面介绍计算图中对象的操作。</p>
+<h3 id="2-2-1-开始"><a href="#2-2-1-开始" class="headerlink" title="2.2.1 开始"></a>2.2.1 开始</h3><p>导入TensorFlow，创建一个会话，开始一个计算图：</p>
+<p><img src="Image00067.jpg" alt></p>
+<h3 id="2-2-2-动手做"><a href="#2-2-2-动手做" class="headerlink" title="2.2.2 动手做"></a>2.2.2 动手做</h3><p>在这个例子中，我们将结合前面所学的知识，传入一个列表到计算图中的操作，并打印返回值：</p>
+<p>1.首先，声明张量和占位符。这里，创建一个numpy数组，传入计算图操作：</p>
+<p><img src="Image00068.jpg" alt></p>
+<h3 id="2-2-3-工作原理"><a href="#2-2-3-工作原理" class="headerlink" title="2.2.3 工作原理"></a>2.2.3 工作原理</h3><p>首先，创建数据集和计算图操作，然后传入数据、打印返回值。下面展示计算图（见图2-1）：</p>
+<p><img src="Image00069.jpg" alt></p>
+<p>图2-1 图中展示了占位符、x_data、乘法常量传入乘法操作</p>
+<h2 id="2-3-TensorFlow的嵌入Layer"><a href="#2-3-TensorFlow的嵌入Layer" class="headerlink" title="2.3 TensorFlow的嵌入Layer"></a>2.3 TensorFlow的嵌入Layer</h2><p>在本节，我们将学习如何在同一个计算图中进行多个乘法操作。</p>
+<h3 id="2-3-1-开始"><a href="#2-3-1-开始" class="headerlink" title="2.3.1 开始"></a>2.3.1 开始</h3><p>下面我们将用两个矩阵乘以占位符，然后做加法。传入两个矩阵（三维numpy数组）：</p>
+<p><img src="Image00070.jpg" alt></p>
+<h3 id="2-3-2-动手做"><a href="#2-3-2-动手做" class="headerlink" title="2.3.2 动手做"></a>2.3.2 动手做</h3><p>知道数据在传入后是如何改变形状的也是非常重要的。我们将传入两个形状为3×5的numpy数组，然后每个矩阵乘以常量矩阵（形状为：5×1），将返回一个形状为3×1的矩阵。紧接着再乘以1×1的矩阵，返回的结果矩阵仍然为3×1。最后，加上一个3×1的矩阵，示例如下：</p>
+<p>1.首先，创建数据和占位符：</p>
+<p><img src="Image00071.jpg" alt></p>
+<p>2.接着，创建矩阵乘法和加法中要用到的常量矩阵：</p>
+<p><img src="Image00072.jpg" alt></p>
+<p>3.现在声明操作，表示成计算图：</p>
+<p><img src="Image00073.jpg" alt></p>
+<p>4.最后，通过计算图赋值：</p>
+<p><img src="Image00074.jpg" alt></p>
+<h3 id="2-3-3-工作原理"><a href="#2-3-3-工作原理" class="headerlink" title="2.3.3 工作原理"></a>2.3.3 工作原理</h3><p>上面创建的计算图可以用Tensorboard可视化。Tensorboard是TensorFlow的功能，允许用户在图中可视化计算图和值。这些功能是原生的，不像其他机器学习框架。如果想知道这是如何做到的，可参见第11章。图2-2是嵌入层计算图。</p>
+<h3 id="2-3-4-延伸学习"><a href="#2-3-4-延伸学习" class="headerlink" title="2.3.4 延伸学习"></a>2.3.4 延伸学习</h3><p>在我们通过计算图运行数据之前心里要有个数：声明数据形状，预估操作返回值形状。由于预先不知道或者维度在变化，情况也可能发生变化。为了实现目标，我们指明变化的维度，或者事先不知道的维度设为none。例如，占位符有未知列维度，使用方式如下：</p>
+<p><img src="Image00075.jpg" alt></p>
+<p><img src="Image00076.jpg" alt></p>
+<p>图2-2 在图中可以看到向上传播的计算图的数据大小</p>
+<p>上面虽然允许打破矩阵乘法规则，但仍然需要遵守——乘以常量矩阵返回值有一致的行数。在计算图中，也可以传入动态的x_data，或者更改形状的x_data，具体细节将在多批量传入数据时讲解。</p>
+<h2 id="2-4-TensorFlow的多层Layer"><a href="#2-4-TensorFlow的多层Layer" class="headerlink" title="2.4 TensorFlow的多层Layer"></a>2.4 TensorFlow的多层Layer</h2><p>目前，我们已经学完在同一个计算图中进行多个操作，接下来将讲述如何连接传播数据的多层Layer。</p>
+<h3 id="2-4-1-开始"><a href="#2-4-1-开始" class="headerlink" title="2.4.1 开始"></a>2.4.1 开始</h3><p>本节中，将介绍如何更好地连接多层Layer，包括自定义Layer。这里给出一个例子（数据是生成随机图片数据），以更好地理解不同类型的操作和如何用内建层Layer进行计算。我们对2D图像进行滑动窗口平均，然后通过自定义操作层Layer返回结果。</p>
+<p>在这节，我们将会看到TensorFlow的计算图太大，导致无法完整查看。为了解决此问题，将对各层Layer和操作进行层级命名管理。按照惯例，加载numpy和tensorflow模块，创建计算图，代码如下：</p>
+<p><img src="Image00077.jpg" alt></p>
+<h3 id="2-4-2-动手做"><a href="#2-4-2-动手做" class="headerlink" title="2.4.2 动手做"></a>2.4.2 动手做</h3><p>1.首先，通过numpy创建2D图像，4×4像素图片。我们将创建成四维：第一维和最后一维大小为1。注意，TensorFlow的图像函数是处理四维图片的，这四维是：图片数量、高度、宽度和颜色通道。这里是一张图片，单颜色通道，所以设两个维度值为1：</p>
+<p><img src="Image00078.jpg" alt></p>
+<p>2.下面在计算图中创建占位符。此例中占位符是用来传入图片的，代码如下：</p>
+<p><img src="Image00079.jpg" alt></p>
+<p>3.为了创建过滤4×4像素图片的滑动窗口，我们将用TensorFlow内建函数conv2d（）（常用来做图像处理）卷积2×2形状的常量窗口。conv2d（）函数传入滑动窗口、过滤器和步长。本例将在滑动窗口四个方向上计算，所以在四个方向上都要指定步长。创建一个2×2的窗口，每个方向长度为2的步长。为了计算平均值，我们将用常量为0.25的向量与2×2的窗口卷积，代码如下：</p>
+<p><img src="Image00080.jpg" alt></p>
+<p><img src="Image00011.jpg" alt> 可以使用公式：Output=（W-F+2P）/S+1计算卷积层的返回值形状。这里，W是输入形状，F是过滤器形状，P是padding的大小，S是步长形状。</p>
+<p>4.注意，我们通过conv2d（）函数的name参数，把这层Layer命名为“Moving_Avg_Window”。</p>
+<p>5.现在定义一个自定义Layer，操作滑动窗口平均的2×2的返回值。自定义函数将输入张量乘以一个2×2的矩阵张量，然后每个元素加1。因为矩阵乘法只计算二维矩阵，所以剪裁图像的多余维度（大小为1）。TensorFlow通过内建函数squeeze（）剪裁。下面是新定义的Layer：</p>
+<p><img src="Image00081.jpg" alt></p>
+<p><img src="Image00082.jpg" alt></p>
+<p>6.现在把刚刚新定义的Layer加入到计算图中，并且用tf.name_scope（）命名唯一的Layer名字，后续在计算图中可折叠/扩展Custom_Layer层，代码如下：</p>
+<p><img src="Image00083.jpg" alt></p>
+<p>7.为占位符传入4×4像素图片，然后执行计算图，代码如下：</p>
+<p><img src="Image00084.jpg" alt></p>
+<h2 id="TensorFlow实现损失函数"><a href="#TensorFlow实现损失函数" class="headerlink" title="TensorFlow实现损失函数"></a>TensorFlow实现损失函数</h2><h2 id="TensorFlow实现反向传播"><a href="#TensorFlow实现反向传播" class="headerlink" title="TensorFlow实现反向传播"></a>TensorFlow实现反向传播</h2><h2 id="TensorFlow实现随机训练和批量训练"><a href="#TensorFlow实现随机训练和批量训练" class="headerlink" title="TensorFlow实现随机训练和批量训练"></a>TensorFlow实现随机训练和批量训练</h2><h2 id="TensorFlow实现创建分类器"><a href="#TensorFlow实现创建分类器" class="headerlink" title="TensorFlow实现创建分类器"></a>TensorFlow实现创建分类器</h2><h2 id="TensorFlow实现模型评估"><a href="#TensorFlow实现模型评估" class="headerlink" title="TensorFlow实现模型评估"></a>TensorFlow实现模型评估</h2><p><br></p>
+<hr>
+<hr>
+<hr>
+<p><br></p>
+<h1 id="第3章-基于TensorFlow的线性回归"><a href="#第3章-基于TensorFlow的线性回归" class="headerlink" title="第3章 基于TensorFlow的线性回归"></a>第3章 基于TensorFlow的线性回归</h1><h2 id="线性回归介绍"><a href="#线性回归介绍" class="headerlink" title="线性回归介绍"></a>线性回归介绍</h2><h2 id="用TensorFlow求逆矩阵"><a href="#用TensorFlow求逆矩阵" class="headerlink" title="用TensorFlow求逆矩阵"></a>用TensorFlow求逆矩阵</h2><h2 id="用TensorFlow实现矩阵分解"><a href="#用TensorFlow实现矩阵分解" class="headerlink" title="用TensorFlow实现矩阵分解"></a>用TensorFlow实现矩阵分解</h2><h2 id="用TensorFlow实现线性回归算法"><a href="#用TensorFlow实现线性回归算法" class="headerlink" title="用TensorFlow实现线性回归算法"></a>用TensorFlow实现线性回归算法</h2><h2 id="理解线性回归中的损失函数"><a href="#理解线性回归中的损失函数" class="headerlink" title="理解线性回归中的损失函数"></a>理解线性回归中的损失函数</h2><h2 id="用TensorFlow实现戴明回归算法"><a href="#用TensorFlow实现戴明回归算法" class="headerlink" title="用TensorFlow实现戴明回归算法"></a>用TensorFlow实现戴明回归算法</h2><h2 id="用TensorFlow实现lasso回归和岭回归算法"><a href="#用TensorFlow实现lasso回归和岭回归算法" class="headerlink" title="用TensorFlow实现lasso回归和岭回归算法"></a>用TensorFlow实现lasso回归和岭回归算法</h2><h2 id="用TensorFlow实现弹性网络回归算法"><a href="#用TensorFlow实现弹性网络回归算法" class="headerlink" title="用TensorFlow实现弹性网络回归算法"></a>用TensorFlow实现弹性网络回归算法</h2><h2 id="用TensorFlow实现逻辑回归算法"><a href="#用TensorFlow实现逻辑回归算法" class="headerlink" title="用TensorFlow实现逻辑回归算法"></a>用TensorFlow实现逻辑回归算法</h2><p><br></p>
+<hr>
+<hr>
+<hr>
+<p><br></p>
+<h1 id="第4章-基于TensorFlow的支持向量机"><a href="#第4章-基于TensorFlow的支持向量机" class="headerlink" title="第4章 基于TensorFlow的支持向量机"></a>第4章 基于TensorFlow的支持向量机</h1><h2 id="支持向量机简介"><a href="#支持向量机简介" class="headerlink" title="支持向量机简介"></a>支持向量机简介</h2><h2 id="线性支持向量机的使用"><a href="#线性支持向量机的使用" class="headerlink" title="线性支持向量机的使用"></a>线性支持向量机的使用</h2><h2 id="弱化为线性回归"><a href="#弱化为线性回归" class="headerlink" title="弱化为线性回归"></a>弱化为线性回归</h2><h2 id="TensorFlow上核函数的使用"><a href="#TensorFlow上核函数的使用" class="headerlink" title="TensorFlow上核函数的使用"></a>TensorFlow上核函数的使用</h2><h2 id="用TensorFlow实现非线性支持向量机"><a href="#用TensorFlow实现非线性支持向量机" class="headerlink" title="用TensorFlow实现非线性支持向量机"></a>用TensorFlow实现非线性支持向量机</h2><h2 id="用TensorFlow实现多类支持向量机"><a href="#用TensorFlow实现多类支持向量机" class="headerlink" title="用TensorFlow实现多类支持向量机"></a>用TensorFlow实现多类支持向量机</h2><p><br></p>
+<hr>
+<hr>
+<hr>
+<p><br></p>
+<h1 id="第5章-最近邻域法"><a href="#第5章-最近邻域法" class="headerlink" title="第5章 最近邻域法"></a>第5章 最近邻域法</h1><h2 id="最近邻域法介绍"><a href="#最近邻域法介绍" class="headerlink" title="最近邻域法介绍"></a>最近邻域法介绍</h2><h2 id="最近邻域法的使用"><a href="#最近邻域法的使用" class="headerlink" title="最近邻域法的使用"></a>最近邻域法的使用</h2><h2 id="如何度量文本距离"><a href="#如何度量文本距离" class="headerlink" title="如何度量文本距离"></a>如何度量文本距离</h2><h2 id="用TensorFlow实现混合距离计算"><a href="#用TensorFlow实现混合距离计算" class="headerlink" title="用TensorFlow实现混合距离计算"></a>用TensorFlow实现混合距离计算</h2><h2 id="用TensorFlow实现地址匹配"><a href="#用TensorFlow实现地址匹配" class="headerlink" title="用TensorFlow实现地址匹配"></a>用TensorFlow实现地址匹配</h2><h2 id="用TensorFlow实现图像识别"><a href="#用TensorFlow实现图像识别" class="headerlink" title="用TensorFlow实现图像识别"></a>用TensorFlow实现图像识别</h2><p><br></p>
+<hr>
+<hr>
+<hr>
+<p><br></p>
+<h1 id="第6章-神经网络算法"><a href="#第6章-神经网络算法" class="headerlink" title="第6章 神经网络算法"></a>第6章 神经网络算法</h1><h2 id="神经网络算法基础"><a href="#神经网络算法基础" class="headerlink" title="神经网络算法基础"></a>神经网络算法基础</h2><h2 id="用TensorFlow实现门函数"><a href="#用TensorFlow实现门函数" class="headerlink" title="用TensorFlow实现门函数"></a>用TensorFlow实现门函数</h2><h2 id="使用门函数和激励函数"><a href="#使用门函数和激励函数" class="headerlink" title="使用门函数和激励函数"></a>使用门函数和激励函数</h2><h2 id="用TensorFlow实现单层神经网络"><a href="#用TensorFlow实现单层神经网络" class="headerlink" title="用TensorFlow实现单层神经网络"></a>用TensorFlow实现单层神经网络</h2><h2 id="用TensorFlow实现神经网络常见层"><a href="#用TensorFlow实现神经网络常见层" class="headerlink" title="用TensorFlow实现神经网络常见层"></a>用TensorFlow实现神经网络常见层</h2><h2 id="用TensorFlow实现多层神经网络"><a href="#用TensorFlow实现多层神经网络" class="headerlink" title="用TensorFlow实现多层神经网络"></a>用TensorFlow实现多层神经网络</h2><h2 id="线性预测模型的优化"><a href="#线性预测模型的优化" class="headerlink" title="线性预测模型的优化"></a>线性预测模型的优化</h2><h2 id="用TensorFlow基于神经网络实现井字棋"><a href="#用TensorFlow基于神经网络实现井字棋" class="headerlink" title="用TensorFlow基于神经网络实现井字棋"></a>用TensorFlow基于神经网络实现井字棋</h2><p><br></p>
+<hr>
+<hr>
+<hr>
+<p><br></p>
+<h1 id="第7章-自然语言处理"><a href="#第7章-自然语言处理" class="headerlink" title="第7章 自然语言处理"></a>第7章 自然语言处理</h1><h2 id="文本处理介绍"><a href="#文本处理介绍" class="headerlink" title="文本处理介绍"></a>文本处理介绍</h2><h2 id="词袋的使用"><a href="#词袋的使用" class="headerlink" title="词袋的使用"></a>词袋的使用</h2><h2 id="用TensorFlow实现TF-IDF算法"><a href="#用TensorFlow实现TF-IDF算法" class="headerlink" title="用TensorFlow实现TF-IDF算法"></a>用TensorFlow实现TF-IDF算法</h2><h2 id="用TensorFlow实现skip-gram模型"><a href="#用TensorFlow实现skip-gram模型" class="headerlink" title="用TensorFlow实现skip-gram模型"></a>用TensorFlow实现skip-gram模型</h2><h2 id="用TensorFlow实现CBOW词嵌入模型"><a href="#用TensorFlow实现CBOW词嵌入模型" class="headerlink" title="用TensorFlow实现CBOW词嵌入模型"></a>用TensorFlow实现CBOW词嵌入模型</h2><h2 id="使用TensorFlow的Word2Vec预测"><a href="#使用TensorFlow的Word2Vec预测" class="headerlink" title="使用TensorFlow的Word2Vec预测"></a>使用TensorFlow的Word2Vec预测</h2><h2 id="用TensorFlow实现基于Doc2Vec的情感分析"><a href="#用TensorFlow实现基于Doc2Vec的情感分析" class="headerlink" title="用TensorFlow实现基于Doc2Vec的情感分析"></a>用TensorFlow实现基于Doc2Vec的情感分析</h2><p><br></p>
+<hr>
+<hr>
+<hr>
+<p><br></p>
+<h1 id="第8章-卷积神经网络"><a href="#第8章-卷积神经网络" class="headerlink" title="第8章 卷积神经网络"></a>第8章 卷积神经网络</h1><h2 id="卷积神经网络介绍"><a href="#卷积神经网络介绍" class="headerlink" title="卷积神经网络介绍"></a>卷积神经网络介绍</h2><h2 id="用TensorFlow实现简单的CNN"><a href="#用TensorFlow实现简单的CNN" class="headerlink" title="用TensorFlow实现简单的CNN"></a>用TensorFlow实现简单的CNN</h2><h2 id="用TensorFlow实现进阶的CNN"><a href="#用TensorFlow实现进阶的CNN" class="headerlink" title="用TensorFlow实现进阶的CNN"></a>用TensorFlow实现进阶的CNN</h2><h2 id="再训练已有的CNN模型"><a href="#再训练已有的CNN模型" class="headerlink" title="再训练已有的CNN模型"></a>再训练已有的CNN模型</h2><h2 id="用TensorFlow实现模仿大师绘画"><a href="#用TensorFlow实现模仿大师绘画" class="headerlink" title="用TensorFlow实现模仿大师绘画"></a>用TensorFlow实现模仿大师绘画</h2><h2 id="用TensorFlow实现DeepDream"><a href="#用TensorFlow实现DeepDream" class="headerlink" title="用TensorFlow实现DeepDream"></a>用TensorFlow实现DeepDream</h2><p><br></p>
+<hr>
+<hr>
+<hr>
+<p><br></p>
+<h1 id="第9章-递归神经网络"><a href="#第9章-递归神经网络" class="headerlink" title="第9章 递归神经网络"></a>第9章 递归神经网络</h1><h2 id="递归神经网络介绍"><a href="#递归神经网络介绍" class="headerlink" title="递归神经网络介绍"></a>递归神经网络介绍</h2><h2 id="用TensorFlow实现RNN模型进行垃圾短信预测"><a href="#用TensorFlow实现RNN模型进行垃圾短信预测" class="headerlink" title="用TensorFlow实现RNN模型进行垃圾短信预测"></a>用TensorFlow实现RNN模型进行垃圾短信预测</h2><h2 id="用TensorFlow实现LSTM模型"><a href="#用TensorFlow实现LSTM模型" class="headerlink" title="用TensorFlow实现LSTM模型"></a>用TensorFlow实现LSTM模型</h2><h2 id="Stacking多个LSTM-Layer"><a href="#Stacking多个LSTM-Layer" class="headerlink" title="Stacking多个LSTM Layer"></a>Stacking多个LSTM Layer</h2><h2 id="用TensorFlow实现Seq2Seq翻译模型"><a href="#用TensorFlow实现Seq2Seq翻译模型" class="headerlink" title="用TensorFlow实现Seq2Seq翻译模型"></a>用TensorFlow实现Seq2Seq翻译模型</h2><h2 id="TensorFlow实现孪生RNN预测相似度"><a href="#TensorFlow实现孪生RNN预测相似度" class="headerlink" title="TensorFlow实现孪生RNN预测相似度"></a>TensorFlow实现孪生RNN预测相似度</h2><p><br></p>
+<hr>
+<hr>
+<hr>
+<p><br></p>
+<h1 id="第10章-TensorFlow产品化"><a href="#第10章-TensorFlow产品化" class="headerlink" title="第10章 TensorFlow产品化"></a>第10章 TensorFlow产品化</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><h2 id="TensorFlow的单元测试"><a href="#TensorFlow的单元测试" class="headerlink" title="TensorFlow的单元测试"></a>TensorFlow的单元测试</h2><h2 id="TensorFlow的并发执行"><a href="#TensorFlow的并发执行" class="headerlink" title="TensorFlow的并发执行"></a>TensorFlow的并发执行</h2><h2 id="分布式TensorFlow实践"><a href="#分布式TensorFlow实践" class="headerlink" title="分布式TensorFlow实践"></a>分布式TensorFlow实践</h2><h2 id="TensorFlow产品化开发提示"><a href="#TensorFlow产品化开发提示" class="headerlink" title="TensorFlow产品化开发提示"></a>TensorFlow产品化开发提示</h2><h2 id="TensorFlow产品化的实例"><a href="#TensorFlow产品化的实例" class="headerlink" title="TensorFlow产品化的实例"></a>TensorFlow产品化的实例</h2><p><br></p>
+<hr>
+<hr>
+<hr>
+<p><br></p>
+<h1 id="第11章-TensorFlow的进阶应用"><a href="#第11章-TensorFlow的进阶应用" class="headerlink" title="第11章 TensorFlow的进阶应用"></a>第11章 TensorFlow的进阶应用</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><h2 id="TensorFlow可视化：Tensorboard"><a href="#TensorFlow可视化：Tensorboard" class="headerlink" title="TensorFlow可视化：Tensorboard"></a>TensorFlow可视化：Tensorboard</h2><h2 id="Tensorboard的进阶"><a href="#Tensorboard的进阶" class="headerlink" title="Tensorboard的进阶"></a>Tensorboard的进阶</h2><h2 id="用TensorFlow实现遗传算法"><a href="#用TensorFlow实现遗传算法" class="headerlink" title="用TensorFlow实现遗传算法"></a>用TensorFlow实现遗传算法</h2><h2 id="TensorFlow实现k-means算法"><a href="#TensorFlow实现k-means算法" class="headerlink" title="TensorFlow实现k-means算法"></a>TensorFlow实现k-means算法</h2><h2 id="用TensorFlow求解常微分方程问题"><a href="#用TensorFlow求解常微分方程问题" class="headerlink" title="用TensorFlow求解常微分方程问题"></a>用TensorFlow求解常微分方程问题</h2><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+
+    
+      
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      <div>    
+       
+       
+      <ul class="post-copyright">
+        <li class="post-copyright-author">
+            <strong>本文作者：</strong>hac_lang
+        </li>
+        <li class="post-copyright-link">
+          <strong>本文链接：</strong>
+          <a href="/2018/01/24/book-《TensorFlow机器学习实战指南》/" title="book_《TensorFlow机器学习实战指南》">2018/01/24/book-《TensorFlow机器学习实战指南》/</a>
+        </li>
+        <li class="post-copyright-license">
+          <strong>版权声明： </strong>
+          许可协议，请勿用于商业，转载注明出处！
+        </li>
+      </ul>
+      
+      </div>
+      
+        
+          
+        
+        <div class="post-tags">
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
+          
+            <a href="/tags/编程/" rel="tag"># 编程</a>
+          
+            <a href="/tags/计算机科学/" rel="tag"># 计算机科学</a>
+          
+            <a href="/tags/计算机/" rel="tag"># 计算机</a>
+          
+            <a href="/tags/人工智能/" rel="tag"># 人工智能</a>
+          
+            <a href="/tags/TensorFlow/" rel="tag"># TensorFlow</a>
+          
+            <a href="/tags/NLP文库/" rel="tag"># NLP文库</a>
+          
+            <a href="/tags/豆瓣5/" rel="tag"># 豆瓣5</a>
+          
+            <a href="/tags/自评/" rel="tag"># 自评</a>
+          
+            <a href="/tags/books/" rel="tag"># books</a>
+          
+            <a href="/tags/续更/" rel="tag"># 续更</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/22/book-《深度学习与计算机视觉：算法原理、框架应用与代码实现》-叶韵/" rel="next" title="book_《深度学习与计算机视觉：算法原理、框架应用与代码实现》_叶韵">
+                <i class="fa fa-chevron-left"></i> book_《深度学习与计算机视觉：算法原理、框架应用与代码实现》_叶韵
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/26/book-《深度学习之TensorFlow入门、原理与进阶实战》-李金洪/" rel="prev" title="book_《深度学习之TensorFlow入门、原理与进阶实战》_李金洪">
+                book_《深度学习之TensorFlow入门、原理与进阶实战》_李金洪 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  
+    <img class="site-author-image" itemprop="image" src="/images/header.jpg" alt="hac_lang">
+  
+  <p class="site-author-name" itemprop="name">hac_lang</p>
+  <div class="site-description motion-element" itemprop="description">小白hac_lang的笔记，涉及内容包含但不限于<br>人工智能 &ensp; 信息安全 &ensp; 网络技术<br>软件工程 &ensp; 基因工程 &ensp; 嵌入式 &ensp; 天文物理</div>
+</div>
+
+
+  <nav class="site-state motion-element">
+    
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+    
+
+    
+
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">82</span>
+        <span class="site-state-item-name">tags</span>
+        </a>
+      </div>
+    
+  </nav>
+
+
+
+
+
+
+
+  <div class="links-of-author motion-element">
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://github.com/HACLANG" title="GitHub &rarr; https://github.com/HACLANG" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://stackoverflow.com/yourname" title="StackOverflow &rarr; https://stackoverflow.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-stack-overflow"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://gitter.im" title="Gitter &rarr; https://gitter.im" rel="noopener" target="_blank"><i class="fa fa-fw fa-github-alt"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://www.jianshu.com/u/442ddccf3f32" title="简书 &rarr; https://www.jianshu.com/u/442ddccf3f32" rel="noopener" target="_blank"><i class="fa fa-fw fa-book"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://www.facebook.com/hac.lang.1675" title="Quora &rarr; https://www.facebook.com/hac.lang.1675" rel="noopener" target="_blank"><i class="fa fa-fw fa-quora"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://plus.google.com/yourname" title="Google &rarr; https://plus.google.com/yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-google"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="mailto:haclang.org@gmail.com" title="E-Mail &rarr; mailto:haclang.org@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="skype:haclang?call|chat" title="Skype &rarr; skype:haclang?call|chat" rel="noopener" target="_blank"><i class="fa fa-fw fa-skype"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://twitter.com/haclang2" title="Twitter &rarr; https://twitter.com/haclang2" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i></a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+      
+        
+      
+        <a href="https://www.facebook.com/hac.lang.1675" title="FaceBook &rarr; https://www.facebook.com/hac.lang.1675" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i></a>
+      </span>
+    
+  </div>
+
+
+
+
+
+
+
+
+          
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#译者序"><span class="nav-text">译者序</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作者简介"><span class="nav-text">作者简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#审校者简介"><span class="nav-text">审校者简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第1章-TensorFlow基础"><span class="nav-text">第1章 TensorFlow基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-TensorFlow介绍"><span class="nav-text">1.1 TensorFlow介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-TensorFlow如何工作"><span class="nav-text">1.2 TensorFlow如何工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-1-开始"><span class="nav-text">1.2.1 开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-2-动手做"><span class="nav-text">1.2.2 动手做</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-3-工作原理"><span class="nav-text">1.2.3 工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-4-参考"><span class="nav-text">1.2.4 参考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-声明张量"><span class="nav-text">1.3 声明张量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-1-开始"><span class="nav-text">1.3.1 开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-2-动手做"><span class="nav-text">1.3.2 动手做</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-3-工作原理"><span class="nav-text">1.3.3 工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-4-延伸学习"><span class="nav-text">1.3.4 延伸学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-使用占位符和变量"><span class="nav-text">1.4 使用占位符和变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-1-开始"><span class="nav-text">1.4.1 开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-2-动手做"><span class="nav-text">1.4.2 动手做</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-3-工作原理"><span class="nav-text">1.4.3 工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-4-延伸学习"><span class="nav-text">1.4.4 延伸学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5-操作（计算）矩阵"><span class="nav-text">1.5 操作（计算）矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-1-开始"><span class="nav-text">1.5.1 开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-2-动手做"><span class="nav-text">1.5.2 动手做</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-3-工作原理"><span class="nav-text">1.5.3 工作原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6-声明操作"><span class="nav-text">1.6 声明操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-1-开始"><span class="nav-text">1.6.1 开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-2-动手做"><span class="nav-text">1.6.2 动手做</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-3-工作原理"><span class="nav-text">1.6.3 工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-6-4-延伸学习"><span class="nav-text">1.6.4 延伸学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7-实现激励函数"><span class="nav-text">1.7 实现激励函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-1-开始"><span class="nav-text">1.7.1 开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-2-动手做"><span class="nav-text">1.7.2 动手做</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-3-工作原理"><span class="nav-text">1.7.3 工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-7-4-延伸学习"><span class="nav-text">1.7.4 延伸学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8-读取数据源"><span class="nav-text">1.8 读取数据源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-1-开始"><span class="nav-text">1.8.1 开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-2-动手做"><span class="nav-text">1.8.2 动手做</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-8-3-参考"><span class="nav-text">1.8.3 参考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9-学习资料"><span class="nav-text">1.9 学习资料</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第2章-TensorFlow进阶"><span class="nav-text">第2章 TensorFlow进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-本章概要"><span class="nav-text">2.1 本章概要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-计算图中的操作"><span class="nav-text">2.2 计算图中的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-1-开始"><span class="nav-text">2.2.1 开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-2-动手做"><span class="nav-text">2.2.2 动手做</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-3-工作原理"><span class="nav-text">2.2.3 工作原理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-TensorFlow的嵌入Layer"><span class="nav-text">2.3 TensorFlow的嵌入Layer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-1-开始"><span class="nav-text">2.3.1 开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-2-动手做"><span class="nav-text">2.3.2 动手做</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-3-工作原理"><span class="nav-text">2.3.3 工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-4-延伸学习"><span class="nav-text">2.3.4 延伸学习</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-TensorFlow的多层Layer"><span class="nav-text">2.4 TensorFlow的多层Layer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-1-开始"><span class="nav-text">2.4.1 开始</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-2-动手做"><span class="nav-text">2.4.2 动手做</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow实现损失函数"><span class="nav-text">TensorFlow实现损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow实现反向传播"><span class="nav-text">TensorFlow实现反向传播</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow实现随机训练和批量训练"><span class="nav-text">TensorFlow实现随机训练和批量训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow实现创建分类器"><span class="nav-text">TensorFlow实现创建分类器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow实现模型评估"><span class="nav-text">TensorFlow实现模型评估</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第3章-基于TensorFlow的线性回归"><span class="nav-text">第3章 基于TensorFlow的线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线性回归介绍"><span class="nav-text">线性回归介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow求逆矩阵"><span class="nav-text">用TensorFlow求逆矩阵</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现矩阵分解"><span class="nav-text">用TensorFlow实现矩阵分解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现线性回归算法"><span class="nav-text">用TensorFlow实现线性回归算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理解线性回归中的损失函数"><span class="nav-text">理解线性回归中的损失函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现戴明回归算法"><span class="nav-text">用TensorFlow实现戴明回归算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现lasso回归和岭回归算法"><span class="nav-text">用TensorFlow实现lasso回归和岭回归算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现弹性网络回归算法"><span class="nav-text">用TensorFlow实现弹性网络回归算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现逻辑回归算法"><span class="nav-text">用TensorFlow实现逻辑回归算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第4章-基于TensorFlow的支持向量机"><span class="nav-text">第4章 基于TensorFlow的支持向量机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#支持向量机简介"><span class="nav-text">支持向量机简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性支持向量机的使用"><span class="nav-text">线性支持向量机的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#弱化为线性回归"><span class="nav-text">弱化为线性回归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow上核函数的使用"><span class="nav-text">TensorFlow上核函数的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现非线性支持向量机"><span class="nav-text">用TensorFlow实现非线性支持向量机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现多类支持向量机"><span class="nav-text">用TensorFlow实现多类支持向量机</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第5章-最近邻域法"><span class="nav-text">第5章 最近邻域法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#最近邻域法介绍"><span class="nav-text">最近邻域法介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最近邻域法的使用"><span class="nav-text">最近邻域法的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何度量文本距离"><span class="nav-text">如何度量文本距离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现混合距离计算"><span class="nav-text">用TensorFlow实现混合距离计算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现地址匹配"><span class="nav-text">用TensorFlow实现地址匹配</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现图像识别"><span class="nav-text">用TensorFlow实现图像识别</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第6章-神经网络算法"><span class="nav-text">第6章 神经网络算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络算法基础"><span class="nav-text">神经网络算法基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现门函数"><span class="nav-text">用TensorFlow实现门函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用门函数和激励函数"><span class="nav-text">使用门函数和激励函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现单层神经网络"><span class="nav-text">用TensorFlow实现单层神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现神经网络常见层"><span class="nav-text">用TensorFlow实现神经网络常见层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现多层神经网络"><span class="nav-text">用TensorFlow实现多层神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线性预测模型的优化"><span class="nav-text">线性预测模型的优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow基于神经网络实现井字棋"><span class="nav-text">用TensorFlow基于神经网络实现井字棋</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第7章-自然语言处理"><span class="nav-text">第7章 自然语言处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#文本处理介绍"><span class="nav-text">文本处理介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#词袋的使用"><span class="nav-text">词袋的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现TF-IDF算法"><span class="nav-text">用TensorFlow实现TF-IDF算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现skip-gram模型"><span class="nav-text">用TensorFlow实现skip-gram模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现CBOW词嵌入模型"><span class="nav-text">用TensorFlow实现CBOW词嵌入模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用TensorFlow的Word2Vec预测"><span class="nav-text">使用TensorFlow的Word2Vec预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现基于Doc2Vec的情感分析"><span class="nav-text">用TensorFlow实现基于Doc2Vec的情感分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第8章-卷积神经网络"><span class="nav-text">第8章 卷积神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#卷积神经网络介绍"><span class="nav-text">卷积神经网络介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现简单的CNN"><span class="nav-text">用TensorFlow实现简单的CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现进阶的CNN"><span class="nav-text">用TensorFlow实现进阶的CNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#再训练已有的CNN模型"><span class="nav-text">再训练已有的CNN模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现模仿大师绘画"><span class="nav-text">用TensorFlow实现模仿大师绘画</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现DeepDream"><span class="nav-text">用TensorFlow实现DeepDream</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第9章-递归神经网络"><span class="nav-text">第9章 递归神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#递归神经网络介绍"><span class="nav-text">递归神经网络介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现RNN模型进行垃圾短信预测"><span class="nav-text">用TensorFlow实现RNN模型进行垃圾短信预测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现LSTM模型"><span class="nav-text">用TensorFlow实现LSTM模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stacking多个LSTM-Layer"><span class="nav-text">Stacking多个LSTM Layer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现Seq2Seq翻译模型"><span class="nav-text">用TensorFlow实现Seq2Seq翻译模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow实现孪生RNN预测相似度"><span class="nav-text">TensorFlow实现孪生RNN预测相似度</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第10章-TensorFlow产品化"><span class="nav-text">第10章 TensorFlow产品化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow的单元测试"><span class="nav-text">TensorFlow的单元测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow的并发执行"><span class="nav-text">TensorFlow的并发执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式TensorFlow实践"><span class="nav-text">分布式TensorFlow实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow产品化开发提示"><span class="nav-text">TensorFlow产品化开发提示</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow产品化的实例"><span class="nav-text">TensorFlow产品化的实例</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第11章-TensorFlow的进阶应用"><span class="nav-text">第11章 TensorFlow的进阶应用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-1"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow可视化：Tensorboard"><span class="nav-text">TensorFlow可视化：Tensorboard</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tensorboard的进阶"><span class="nav-text">Tensorboard的进阶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow实现遗传算法"><span class="nav-text">用TensorFlow实现遗传算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow实现k-means算法"><span class="nav-text">TensorFlow实现k-means算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用TensorFlow求解常微分方程问题"><span class="nav-text">用TensorFlow求解常微分方程问题</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">hac_lang</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,255" opacity="0.5" zindex="-1" count="99" src="true"></script>
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=3.4.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+
+
+  <script src="/js/utils.js?v=7.2.0"></script>
+
+  <script src="/js/motion.js?v=7.2.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.2.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.2.0"></script>
+<script src="/js/post-details.js?v=7.2.0"></script>
+
+
+
+  <script src="/js/next-boot.js?v=7.2.0"></script>
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+
+  
+
+
+
+<script>
+// GET RESPONSIVE HEIGHT PASSED FROM IFRAME
+
+window.addEventListener("message", function(e) {
+  var data = e.data;
+  if ((typeof data === 'string') && (data.indexOf('ciu_embed') > -1)) {
+    var featureID = data.split(':')[1];
+    var height = data.split(':')[2];
+    $(`iframe[data-feature=${featureID}]`).height(parseInt(height) + 30);
+  }
+}, false);
+</script>
+
+
+  
+
+  
+
+  
+
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":250,"height":500},"mobile":{"show":false,"scale":0.5},"react":{"opacity":0.7},"log":false,"tagMode":false});</script></body>
+</html>
